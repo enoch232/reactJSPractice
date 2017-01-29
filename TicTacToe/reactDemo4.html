@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://unpkg.com/react@15/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="boardHolder">
+    </div>
+    <script type = 'text/babel'>
+
+      class Board extends React.Component{
+        render(){
+          return(
+            <Square />
+          )
+        }
+
+      }
+
+      class Square extends React.Component{
+        constructor(){
+          super()
+          this.state = {
+            value: null
+          }
+        }
+        render(){
+          return(
+            <button className = 'square' onClick = {function(){ this.setState({value: "X"})}.bind(this)}>
+              {this.state.value}
+            </button>
+          )
+
+        }
+      }
+
+      ReactDOM.render(<Board />, document.getElementById('boardHolder'))
+
+    </script>
+  </body>
+</html>
